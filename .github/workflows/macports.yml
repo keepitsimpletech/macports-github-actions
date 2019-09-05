@@ -29,3 +29,7 @@ jobs:
       - name: Install Macports
         run: |
           sudo /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
+      - name: Macports version and info qt5
+        run: |
+          /opt/local/bin/port version
+          /opt/local/bin/port info qt5
