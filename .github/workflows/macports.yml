@@ -38,8 +38,8 @@ jobs:
         run: |
           sudo /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
           sudo ln -s $(which cmake) /opt/local/bin/cmake
-      - name: Macports version and info qt5
+      - name: Install first Macport double-conversion using Cmake
         run: |
           /opt/local/bin/port version
           /opt/local/bin/cmake --version
-          sudo /opt/local/bin/port -v install double-precision
+          sudo /opt/local/bin/port -vs install double-conversion
