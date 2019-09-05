@@ -13,23 +13,19 @@ jobs:
           id
       - name: Default Xcode path
         run: |
-          echo Default Xcode path \`xcode-select -p\`
           xcode-select -p
       - name: Default Xcode version
         run: |
-          echo Default Xcode version \`xcodebuild -version\`
           xcodebuild -version
       - name: Set Xcode to 10.3
         run: |
-          xcode-select -s /Applications/Xcode_10.3.app/Contents/Developer
+          sudo xcode-select -s /Applications/Xcode_10.3.app/Contents/Developer
       - name: Xcode version
         run: |
           xcodebuild -version
       - name: Download Macports
         run: |
-          echo Download Macports
           curl -vsO https://distfiles.macports.org/MacPorts/MacPorts-2.5.4-10.14-Mojave.pkg
       - name: Install Macports
         run: |
-          echo Install Macports
           sudo /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
