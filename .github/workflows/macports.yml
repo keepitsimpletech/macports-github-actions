@@ -34,17 +34,13 @@ jobs:
           which python3.7
           ls -l $(which python3.7)
           python3.7 --version
-      - name: Default Xcode path
+      - name: Default Xcode
         run: |
           xcode-select -p
-      - name: Default Xcode version
-        run: |
           xcodebuild -version
       - name: Set Xcode to 10.3
         run: |
           sudo xcode-select -s /Applications/Xcode_10.3.app/Contents/Developer
-      - name: Xcode version
-        run: |
           xcodebuild -version
       - name: Download Macports
         run: |
@@ -52,9 +48,10 @@ jobs:
       - name: Install Macports
         run: |
           sudo /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
-          ln -s $(which cmake) /opt/local/bin/cmake
+          sudo ln -s $(which cmake) /opt/local/bin/cmake
+          export PATH=/opt/local/bin:/opt/local/sbin:$PATH
       - name: Macports version and info qt5
         run: |
-          /opt/local/bin/port version
-          /opt/local/bin/port info qt5
+          port version
+          port info qt5
           /opt/local/bin/cmake --version
