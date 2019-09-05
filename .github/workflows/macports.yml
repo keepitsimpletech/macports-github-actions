@@ -11,7 +11,11 @@ jobs:
         run: |
           echo $PATH
           id
-      - name: Default cmake path and version
+      - name: Default xz path and version
+        run: |
+          which xz
+          xz --version
+          - name: Default cmake path and version
         run: |
           which cmake
           cmake --version
@@ -48,7 +52,9 @@ jobs:
       - name: Install Macports
         run: |
           sudo /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
+          ln -s $(which cmake) /opt/local/bin/cmake
       - name: Macports version and info qt5
         run: |
           /opt/local/bin/port version
           /opt/local/bin/port info qt5
+          /opt/local/bin/cmake --version
