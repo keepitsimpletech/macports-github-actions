@@ -19,6 +19,12 @@ jobs:
         run: |
           echo Default Xcode version \`xcodebuild -version\`
           xcodebuild -version
+      - name: Set Xcode to 10.3
+        run: |
+          xcode-select -s /Applications/Xcode_10.3.app/Contents/Developer
+      - name: Xcode version
+        run: |
+          xcodebuild -version
       - name: Download Macports
         run: |
           echo Download Macports
@@ -26,4 +32,4 @@ jobs:
       - name: Install Macports
         run: |
           echo Install Macports
-          /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
+          sudo /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
