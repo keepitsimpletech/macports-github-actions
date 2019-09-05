@@ -11,6 +11,25 @@ jobs:
         run: |
           echo $PATH
           id
+      - name: Default cmake path and version
+        run: |
+          which cmake
+          cmake --version
+      - name: Default python 2
+        run: |
+          which python2.7
+          ls -l $(which python 2.7)
+          python2.7 --version
+      - name: Default python 3
+        run: |
+          which python3
+          ls -l $(which python3)
+          python3 --version
+      - name: Default python 3.7
+        run: |
+          which python3.7
+          ls -l $(which python3.7)
+          python3.7 --version
       - name: Default Xcode path
         run: |
           xcode-select -p
