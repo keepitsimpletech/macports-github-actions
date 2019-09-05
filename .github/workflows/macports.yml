@@ -11,14 +11,15 @@ jobs:
         run: |
           echo $PATH
           id
-      - name: Default xz path and version
+      - name: Check for command line tools
         run: |
-          which xz
-          xz --version
-      - name: Default cmake path and version
-        run: |
-          which cmake
-          cmake --version
+          brew list --versions
+          which xz &&  xz --version
+          which cmake && cmake --version
+          which pkgconfig && pkgconfig --version
+          which gawk && gawk --version
+          which autoconf && autoconf --version
+          which automake && automake --version
       - name: Default python 2
         run: |
           which python2.7
