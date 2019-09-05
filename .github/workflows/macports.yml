@@ -15,7 +15,7 @@ jobs:
         run: |
           which xz
           xz --version
-          - name: Default cmake path and version
+      - name: Default cmake path and version
         run: |
           which cmake
           cmake --version
