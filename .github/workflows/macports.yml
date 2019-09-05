@@ -42,4 +42,4 @@ jobs:
         run: |
           /opt/local/bin/port version
           /opt/local/bin/cmake --version
-          /opt/local/bin/port -v install double-precision
+          sudo /opt/local/bin/port -v install double-precision
