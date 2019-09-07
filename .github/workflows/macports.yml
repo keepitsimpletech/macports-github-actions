@@ -31,15 +31,10 @@ jobs:
         run: |
           sudo xcode-select -s /Applications/Xcode_10.3.app/Contents/Developer
           xcodebuild -version
-      - name: Download Macports
-        run: |
-          curl -vsO https://distfiles.macports.org/MacPorts/MacPorts-2.5.4-10.14-Mojave.pkg
-      - name: Install Macports
-        run: |
-          sudo /usr/sbin/installer -verbose -pkg MacPorts-2.5.4-10.14-Mojave.pkg -target /
-          sudo ln -s $(which cmake) /opt/local/bin/cmake
+      - name: MacPorts
+        uses: keepitsimpletech/actions/setup-macports@releases/v1
       - name: Install first Macport double-conversion using Cmake
         run: |
-          /opt/local/bin/port version
+          port version
           /opt/local/bin/cmake --version
-          sudo /opt/local/bin/port -vs install double-conversion
+          #sudo port -vs install double-conversion
