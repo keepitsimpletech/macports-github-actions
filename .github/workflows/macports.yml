@@ -40,7 +40,7 @@ jobs:
           cmake --version
           sudo port -vs install double-conversion
       - name: Upload artifacts
-      - uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@master
         with: 
-          name: double-conversion.tbz2
+          name: double-conversion
           path: /opt/local/var/macports/software/double-conversion
