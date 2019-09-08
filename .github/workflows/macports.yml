@@ -36,5 +36,11 @@ jobs:
       - name: Install first Macport double-conversion using Cmake
         run: |
           port version
-          /opt/local/bin/cmake --version
-          #sudo port -vs install double-conversion
+          ls -l $(which cmake)
+          cmake --version
+          sudo port -vs install double-conversion
+      - name: Upload artifacts
+      - uses: actions/upload-artifact@master
+        with: 
+          name: double-conversion.tbz2
+          path: /opt/local/var/macports/software/double-conversion
